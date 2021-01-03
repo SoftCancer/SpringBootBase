@@ -1,8 +1,9 @@
 package com.ygx.bootbase.controller;
 
 import com.ygx.bootbase.common.result.ResultMsg;
-import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,16 +16,19 @@ import java.util.Map;
  * @date: 2021/1/1 15:20
  * @Version: 1.0
  */
-@Log4j2
+@Slf4j
 @RestController
 @RequestMapping("login")
 public class LoginController {
 
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
     @RequestMapping("/spring")
     public ResultMsg login(){
-        log.info("测试日志输出");
+        logger.info("测试日志输出");
         Map<String,Object> map  = new HashMap<>();
         map.put("name","姚明");
+        log.info("Slf4j");
         return ResultMsg.success(map);
     }
 }
