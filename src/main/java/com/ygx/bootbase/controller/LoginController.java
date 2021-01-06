@@ -1,5 +1,6 @@
 package com.ygx.bootbase.controller;
 
+import com.ygx.bootbase.common.configure.ConfigurationServiceUrl;
 import com.ygx.bootbase.common.result.ResultMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,5 +32,18 @@ public class LoginController {
         map.put("name","姚明");
         log.info("Slf4j");
         return ResultMsg.success(map);
+    }
+
+    @Resource
+    private ConfigurationServiceUrl microServiceUrl;
+    @RequestMapping("/config")
+    public String testConfig() {
+        logger.info("=====获取的订单服务地址为：{}",
+                microServiceUrl.getOrderUrl());
+        logger.info("=====获取的用户服务地址为：{}",
+                microServiceUrl.getUserUrl());
+        logger.info("=====获取的购物车服务地址为：{}",
+                microServiceUrl.getCarUrl());
+        return "success";
     }
 }
