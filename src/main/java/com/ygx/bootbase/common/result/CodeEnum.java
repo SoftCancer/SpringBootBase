@@ -19,8 +19,10 @@ public enum CodeEnum {
     FAIL("250", "失败"),
     VALUE_NULL("300", "值为空"),
     PARAM_NULL("301", "参数为空，处理异常"),
-    SIGN_ERROR("400", "签名错误"),
-    NO_LOGIN("401", "未登录"),
+    PARAMETER_MISSING("400", "缺少必要的请求参数"),
+    NULL_POINTER_EXCEPTION("401", "空指针异常！"),
+    SIGN_ERROR("700", "签名错误"),
+    NO_LOGIN("701", "未登录"),
     SYS_ERROR("500", "系统异常");
 
     private String code;
