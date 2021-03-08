@@ -1,14 +1,15 @@
 package com.ygx.bootbase.common.result;
 
-import lombok.Data;
+
+import lombok.Getter;
 
 /**
  * 业务异常提示信息枚举类
  *
  * @author shengwu ni
  */
-@Data
-public enum BusinessMsgEnum {
+@Getter
+public enum BusinessEnum {
     /**
      * 参数异常
      */
@@ -35,7 +36,7 @@ public enum BusinessMsgEnum {
      */
     private String msg;
 
-    private BusinessMsgEnum(String code, String msg) {
+    private BusinessEnum(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }

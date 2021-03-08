@@ -9,7 +9,7 @@ import lombok.Data;
  * @Version: 1.0
  */
 @Data
-public class BusinessErrorException extends RuntimeException{
+public class BusinessException extends RuntimeException{
 
     // 异常状态码
     private String code;
@@ -17,7 +17,7 @@ public class BusinessErrorException extends RuntimeException{
     // 异常信息
     private String msg;
 
-    public BusinessErrorException(String code, String msg) {
+    public BusinessException(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }
