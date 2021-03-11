@@ -62,4 +62,19 @@ public class GlobalExceptionHandler {
         logger.error("系统异常：{}",ex);
         return ResultMsg.fail(CodeEnum.SIGN_ERROR.getCode(),CodeEnum.SIGN_ERROR.getMsg());
     }
+    /**
+     * * 拦截业务异常，返回业务异常信息
+     * @Description:
+     * @Author: YaoGX
+     * @Date: 2021/3/8 22:53
+     **/
+    @ExceptionHandler(BusinessException.class)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResultMsg handleBusinessErrorException(BusinessException ex){
+        logger.error("自定义系统异常：{}",ex.getMsg());
+        return ResultMsg.fail(ex.getCode(),ex.getMsg());
+    }
+
+
+
 }

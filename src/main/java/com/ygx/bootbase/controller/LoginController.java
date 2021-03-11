@@ -1,6 +1,11 @@
 package com.ygx.bootbase.controller;
 
+
+import com.ygx.bootbase.common.exception.BusinessException;
+import com.ygx.bootbase.common.result.BusinessEnum;
+
 import com.ygx.bootbase.common.configure.ConfigurationServiceUrl;
+
 import com.ygx.bootbase.common.result.ResultMsg;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,6 +34,7 @@ public class LoginController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
+
     @ApiOperation(value = "日志测试接口", notes = "请求路径：login/spring")
     @RequestMapping(value = "/spring",method = RequestMethod.GET)
     public ResultMsg login() {
@@ -39,6 +45,17 @@ public class LoginController {
         return ResultMsg.success(map);
     }
 
+
+    @RequestMapping("/test")
+    public ResultMsg exce() {
+        logger.info("测试日志输出");
+        try {
+            int i = 1 / 0;
+        } catch (Exception e) {
+            throw new BusinessException(BusinessEnum.UNEXPECTED_EXCEPTION.getCode(), BusinessEnum.UNEXPECTED_EXCEPTION.getCode());
+        }
+        return ResultMsg.fail();
+}
     @Resource
     private ConfigurationServiceUrl microServiceUrl;
 
@@ -51,5 +68,6 @@ public class LoginController {
         logger.info("=====获取的购物车服务地址为：{}",
                 microServiceUrl.getCarUrl());
         return "success";
+
     }
 }
