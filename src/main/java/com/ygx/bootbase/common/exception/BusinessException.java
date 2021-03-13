@@ -1,5 +1,6 @@
 package com.ygx.bootbase.common.exception;
 
+import com.ygx.bootbase.common.result.BusinessEnum;
 import lombok.Data;
 
 /**
@@ -17,8 +18,8 @@ public class BusinessException extends RuntimeException{
     // 异常信息
     private String msg;
 
-    public BusinessException(String code, String msg) {
-        this.code = code;
-        this.msg = msg;
+    public BusinessException(BusinessEnum businessEnum) {
+        this.code = businessEnum.getCode();
+        this.msg = businessEnum.getMsg();
     }
 }

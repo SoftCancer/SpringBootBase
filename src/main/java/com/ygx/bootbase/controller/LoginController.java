@@ -52,7 +52,7 @@ public class LoginController {
         try {
             int i = 1 / 0;
         } catch (Exception e) {
-            throw new BusinessException(BusinessEnum.UNEXPECTED_EXCEPTION.getCode(), BusinessEnum.UNEXPECTED_EXCEPTION.getCode());
+            throw new BusinessException(BusinessEnum.UNEXPECTED_EXCEPTION);
         }
         return ResultMsg.fail();
 }
