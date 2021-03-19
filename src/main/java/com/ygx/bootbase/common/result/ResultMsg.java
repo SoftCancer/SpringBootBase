@@ -78,8 +78,13 @@ public class ResultMsg<T> implements Serializable {
         return fail(CodeEnum.FAIL.getMsg(), data);
     }
 
+
     public static ResultMsg fail(String msg, Object data) {
         return fail(CodeEnum.FAIL.getCode(), msg, data);
+    }
+
+    public static ResultMsg fail(String code, String msg) {
+        return fail(code, msg,null);
     }
 
     public static ResultMsg fail(String code, String msg, Object data) {
