@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+#  Thymeleaf 默认是开启页面缓存的,开发时可以关闭
+spring:
+  thymeleaf:
+    cache: false # 关闭缓存
+

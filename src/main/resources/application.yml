@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active:
+    - dev
+
+url:
+  orderUrl: http://localhost:8010
+  userUrl: http://localhost:8011
+  carUrl: http://localhost:8012
+
