@@ -4,5 +4,8 @@ server:
 #  Thymeleaf 默认是开启页面缓存的,开发时可以关闭
 spring:
   thymeleaf:
-    cache: false # 关闭缓存
+    cache: false
+  main:
+    allow-bean-definition-overriding: true # 关闭缓存
+
 

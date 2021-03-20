@@ -1,5 +1,6 @@
 package com.ygx.bootbase.controller;
 
+import com.ygx.bootbase.common.interceptor.UnInterception;
 import com.ygx.bootbase.entity.User;
 import com.ygx.bootbase.service.UserService;
 import jdk.nashorn.internal.objects.annotations.Getter;
@@ -100,6 +101,7 @@ public class TestController {
         return "success";
     }
 
+    @UnInterception
     @GetMapping("/publish")
     public User publishEvent() {
         User user = userService.getUser_2();
