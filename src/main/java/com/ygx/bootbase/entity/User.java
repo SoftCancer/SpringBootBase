@@ -1,5 +1,6 @@
 package com.ygx.bootbase.entity;
 
+import io.swagger.models.auth.In;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,11 +16,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor                //有参构造
 public class User {
 
-    private String userId;
+    private Integer userId;
 
     private String userName;
 
     private String passWord;
+
+    private Integer roleId;
 
 
 }

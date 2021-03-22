@@ -1,11 +1,27 @@
 server:
   port: 8081
 
-#  Thymeleaf 默认是开启页面缓存的,开发时可以关闭
 spring:
-  thymeleaf:
-    cache: false
-  main:
-    allow-bean-definition-overriding: true # 关闭缓存
+#  Thymeleaf 默认是开启页面缓存的,开发时可以关闭
+#  thymeleaf:
+#    cache: false
+#  main:
+#    allow-bean-definition-overriding: true # 关闭缓存
 
 
+  #数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+
+
+#mybatis的相关配置
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.zhg.demo.mybatis.entity
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
