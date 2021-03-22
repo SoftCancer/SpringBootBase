@@ -2,8 +2,7 @@ package com.ygx.bootbase.controller;
 
 import com.ygx.bootbase.common.interceptor.UnInterception;
 import com.ygx.bootbase.entity.User;
-import com.ygx.bootbase.service.UserService;
-import jdk.nashorn.internal.objects.annotations.Getter;
+import com.ygx.bootbase.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,7 @@ import java.net.URLEncoder;
 public class TestController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
 
 
     @GetMapping("/user")
@@ -104,7 +103,7 @@ public class TestController {
     @UnInterception
     @GetMapping("/publish")
     public User publishEvent() {
-        User user = userService.getUser_2();
+        User user = userServiceImpl.getUser_2();
         System.out.println("自定义事件监听,数据：" + user.getUserName());
         return user;
     }
