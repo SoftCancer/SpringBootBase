@@ -58,7 +58,7 @@ public class ResultMsg<T> implements Serializable {
     }
 
     public static ResultMsg success(String msg, Object data) {
-        return success(CodeEnum.OK.getCode(), msg, data);
+        return success(CodeEnum.OK.getCode(),msg, data);
     }
 
     public static ResultMsg success(String code, String msg, Object data) {

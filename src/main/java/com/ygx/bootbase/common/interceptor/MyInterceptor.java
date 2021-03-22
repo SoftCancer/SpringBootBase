@@ -24,10 +24,11 @@ public class MyInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+
         if (handler instanceof HandlerMethod){
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method method = handlerMethod.getMethod();
-
             // 获取 自定义注解，判断是否被拦截
             UnInterception unInterception = method.getAnnotation(UnInterception.class);
             if (null != unInterception){
