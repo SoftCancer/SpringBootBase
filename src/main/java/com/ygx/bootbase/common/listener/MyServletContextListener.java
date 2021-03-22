@@ -1,7 +1,8 @@
 package com.ygx.bootbase.common.listener;
 
 import com.ygx.bootbase.entity.User;
-import com.ygx.bootbase.service.UserService;
+import com.ygx.bootbase.service.IUserService;
+import com.ygx.bootbase.service.impl.UserServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -24,8 +25,8 @@ public class MyServletContextListener implements ApplicationListener<ContextRefr
         ApplicationContext applicationContext = contextRefreshedEvent.getApplicationContext();
 
         // 获取对应的 Service
-        UserService userService = applicationContext.getBean(UserService.class);
-        User user = userService.getUser();
+        UserServiceImpl userServiceImpl = applicationContext.getBean(UserServiceImpl.class);
+        User user = userServiceImpl.getUser_2();
 // 获取 application 域对象，将查到的信息放到 application 域中
         ServletContext servletContext = applicationContext.getBean(ServletContext.class);
         servletContext.setAttribute("user", user);
